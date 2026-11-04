@@ -62,12 +62,12 @@ fn main() -> ExitCode {
     };
 
     #[cfg(windows)]
-    {
+    let code = {
         if let Some(pid) = pid {
             win_wait::wait_for_process(pid);
         }
         let mut backend = alive_win::PowercfgBackend;
-        return match alive_guard::restore_if_needed(&data_dir, &mut backend) {
+        match alive_guard::restore_if_needed(&data_dir, &mut backend) {
             Ok(restored) => {
                 if restored {
                     println!("alive_guard: power settings were restored from the snapshot");
@@ -78,14 +78,16 @@ fn main() -> ExitCode {
                 eprintln!("alive_guard: restore failed: {e}");
                 ExitCode::from(1)
             }
-        };
-    }
+        }
+    };
 
     #[cfg(not(windows))]
-    {
+    let code = {
         let _ = pid;
         let _ = &data_dir;
         eprintln!("alive_guard: process waiting and power restore are Windows only");
         ExitCode::from(2)
-    }
+    };
+
+    code
 }
