@@ -31,7 +31,7 @@ export function AboutPage() {
       <div className="card">
         <img src={aliveLogo} alt="Alive logo" width={160} />
         <p>
-          <strong>Alive</strong> version 0.1.0. Alive keeps your AI agents running when you close
+          <strong>Alive</strong> version 0.1.1. Alive keeps your AI agents running when you close
           the laptop lid, and restores your original power settings when it turns OFF. Alive sends
           nothing over the network by itself and collects no analytics.
         </p>
