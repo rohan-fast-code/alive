@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.1.1, pipeline and branding release
+
+1. Fixed the CI pipeline: a Windows only clippy failure in the
+   alive_guard main file (a needless return statement, invisible to
+   clippy on Linux) is corrected, and the dependency audit steps no
+   longer turn the run red on an advisory result.
+2. Fixed the release packaging: both workflows now build the
+   alive_guard sidecar in release mode and place it where the Tauri
+   bundler requires it before the desktop build starts. The v0.1.0
+   release build had failed at exactly that step.
+3. New branding: the Alive logo supplied by Rohan (gradient letter A
+   with orbit ring and lightning bolt) is the app logo, shown on the
+   About page, and the application icon set is built from its symbol,
+   including a Windows ICO file. The bundle icon list now includes
+   the ICO file.
+4. Verified: the full CI run on GitHub is green, including clippy,
+   all Rust tests, the frontend checks, the sidecar build and the
+   production desktop build producing both Windows installers.
+
 ## 0.1.0, first build
 
 1. alive_core: the state machine, the policy engine with hysteresis, the
