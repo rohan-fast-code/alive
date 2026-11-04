@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { aliveApi, type SelfCheckItem } from "../api/alive";
+import aliveLogo from "../assets/alive-logo.png";
 
 export function AboutPage() {
   const [checks, setChecks] = useState<SelfCheckItem[]>([]);
@@ -28,6 +29,7 @@ export function AboutPage() {
     <section aria-labelledby="about-heading">
       <h1 id="about-heading">About and Diagnostics</h1>
       <div className="card">
+        <img src={aliveLogo} alt="Alive logo" width={160} />
         <p>
           <strong>Alive</strong> version 0.1.0. Alive keeps your AI agents running when you close
           the laptop lid, and restores your original power settings when it turns OFF. Alive sends
