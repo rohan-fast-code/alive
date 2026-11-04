@@ -1,0 +1,10 @@
+[package]
+name = "alive_guard"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Tiny guard sidecar for Alive. Waits on the main process and restores power settings from the snapshot if Alive dies without a clean shutdown."
+
+[dependencies]
+alive_core = { path = "../alive_core" }
+alive_win = { path = "../alive_win" }

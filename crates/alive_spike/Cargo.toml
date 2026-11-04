@@ -1,0 +1,10 @@
+[package]
+name = "alive_spike"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Phase 0 hardware spike for Alive. Applies lid action and timeouts, holds the keep awake state, waits, then restores everything. Windows only in effect."
+
+[dependencies]
+alive_core = { path = "../alive_core" }
+alive_win = { path = "../alive_win" }

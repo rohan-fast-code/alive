@@ -1,0 +1,9 @@
+[package]
+name = "alive_win"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Windows layer for Alive behind the alive_core traits, plus a powercfg fallback backend and pure parsers that are tested on any OS."
+
+[dependencies]
+alive_core = { path = "../alive_core" }
