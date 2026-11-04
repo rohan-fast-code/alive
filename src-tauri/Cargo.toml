@@ -1,6 +1,6 @@
 [package]
 name = "alive_app"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 license = "MIT"
 description = "Alive desktop application shell built with Tauri 2. Wiring, tray, IPC commands and window management."
