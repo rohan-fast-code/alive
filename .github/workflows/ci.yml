@@ -29,6 +29,7 @@ jobs:
       - run: cargo clippy --workspace --all-targets -- -D warnings
       - run: cargo test --workspace
       - name: Audit Rust dependencies
+        continue-on-error: true
         run: |
           cargo install cargo-audit --locked || echo cargo-audit already present
           cargo audit || true
@@ -37,6 +38,13 @@ jobs:
       - run: npm test
       - run: npm run build
       - name: Audit npm dependencies
+        continue-on-error: true
         run: npm audit --audit-level=high || true
+      - name: Build the guard sidecar
+        shell: pwsh
+        run: |
+          cargo build --release -p alive_guard
+          New-Item -ItemType Directory -Force src-tauri/binaries | Out-Null
+          Copy-Item target/release/alive_guard.exe src-tauri/binaries/alive_guard-x86_64-pc-windows-msvc.exe
       - name: Production build of the desktop app
         run: npm run tauri build
