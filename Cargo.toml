@@ -1,0 +1,8 @@
+[workspace]
+members = ["crates/alive_core", "crates/alive_win", "crates/alive_guard", "crates/alive_spike"]
+exclude = ["src-tauri"]
+resolver = "2"
+
+[profile.release]
+lto = true
+codegen-units = 1
