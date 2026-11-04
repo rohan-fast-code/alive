@@ -1,0 +1,25 @@
+[package]
+name = "alive_app"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Alive desktop application shell built with Tauri 2. Wiring, tray, IPC commands and window management."
+default-run = "alive_app"
+
+[lib]
+name = "alive_app_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+alive_core = { path = "../crates/alive_core" }
+alive_win = { path = "../crates/alive_win" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tauri = { version = "2", features = ["tray-icon"] }
+tauri-plugin-single-instance = "2"
+tauri-plugin-autostart = "2"
+tauri-plugin-notification = "2"
+tauri-plugin-shell = "2"

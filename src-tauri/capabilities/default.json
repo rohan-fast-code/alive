@@ -1,0 +1,1 @@
+{"$schema":"../gen/schemas/desktop-schema.json","description":"Alive main window permissions. Only the core window and notification features the app itself uses are exposed, per the least privilege rule in the spec.","identifier":"default","permissions":["core:default","core:tray:default","notification:default"],"windows":["main"]}
